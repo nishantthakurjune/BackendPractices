@@ -2,8 +2,12 @@ const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express()
 const roleRoute = require('./routes/userRoutes.js')
+const cors = require('cors')
 require('dotenv').config()
 
+
+//using CORS for proxy process
+app.use(cors({origin: 'http://localhost:3000/'}))
 //middleware: read kar paege json files ko
 app.use(express.json());
 
